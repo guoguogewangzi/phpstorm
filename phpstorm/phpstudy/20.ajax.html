@@ -1,3 +1,4 @@
+<!--三步走-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +9,16 @@
 <button onclick="javascript:qingqiu()">按钮</button>
 <script>
     function qingqiu(){
-        var xhp =new XMLHttpRequest();
-        xhp.open("GET","1.txt",true);
-        xhp.onreadystatechange=function (){
+        var xhp =new XMLHttpRequest();                        //1、创建XMLHttpRequest()对象
+
+        xhp.onreadystatechange=function (){                  //2、设置回调函数
             if (xhp.readyState==4 && xhp.status==200){
                 console.log(xhp.responseText);
             }
 
         }
-        xhp.send();
+        xhp.open("GET","1.txt",true);                      //3.1、创建请求
+        xhp.send();                                       //3.2、发送请求
 
     }
 
