@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="javascript:qingqiu()">按钮</button>
+<script>
+    function qingqiu(){
+        var xhp =new XMLHttpRequest();
+        xhp.open("GET","1.txt",true);
+        xhp.onreadystatechange=function (){
+            if (xhp.readyState==4 && xhp.status==200){
+                console.log(xhp.responseText);
+            }
+
+        }
+        xhp.send();
+
+    }
+
+</script>
+</body>
+</html>

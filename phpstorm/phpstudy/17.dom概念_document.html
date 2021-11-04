@@ -1,0 +1,31 @@
+<!--
+在dom中，所有html元素都被定义为对象
+属性是您能获取或设置的值
+方法是您能够完成的动作
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div>
+    <h1>这是一个标题</h1>
+    <p id="pad">这是元素p的内容</p>
+    <a href="javascript:add()">点击增加</a>
+</div>
+
+<script>
+    function add(){
+
+        var pad=document.getElementById("pad")      //知识点：document对象的使用(DOM)，获取id:pad的元素，返回元素对象
+        pad.innerText+="改变了！"                      //知识点：调用innerText属性
+        //pad.innerHTML="<i>你好<i>"                   //知识点：innerHTML与innerText的区别，innerHTML会解析
+    }
+
+</script>
+
+</body>
+</html>

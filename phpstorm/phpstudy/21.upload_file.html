@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form style="display: none" id-="upload_file" action="1.txt" method="post" enctype="multipart/form-data">  <!--这是表单，包含：提交位置，提交方法，enctype="multipart/form-data，style="display: none":代表隐藏表单-->
+    <input id="submit_file_directory" type="text" name="dir" value="">          <!--这是；文本框text，觉得没用-->
+    <input id="submit_file" type="file" name="file" id="submit_file" />          <!--这是;'选择文件'按钮-->
+    <button id="bt">submit</button>                                   <!--这是上传：'submit'按钮-->
+</form>
+
+<a href="javascript:submit_file.click()">Upload</a>
+
+<script>
+    document.getElementById("submit_file").onchange = function(){      //当'submit_file'状态改变时，调用function(){}点击'submit'按钮
+        console.log("hello worldd")
+        document.getElementById("bt").click();
+    }
+
+</script>
+
+</body>
+</html>

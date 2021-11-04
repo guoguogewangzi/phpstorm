@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       .abc{
+           font-size: 50px;
+           color: brown;
+
+       }
+    </style>
+</head>
+<body>
+
+<input type="text" onchange="javascript:displayDate()" value="">     <!--知识点：onchange属性，当该元素改变时，触发调用displayDate()-->
+<p id="demo">这是一个p标签</p>
+
+<script>
+    function displayDate(){
+        document.getElementById("demo").innerHTML="内容改变了";   //更改id:demo的innerHTML的值
+        document.getElementById("demo").className="abc";     //给id:demo添加:class="abc"
+    }
+
+</script>
+
+</body>
+</html>
