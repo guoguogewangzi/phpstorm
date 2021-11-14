@@ -4,7 +4,8 @@
   <title></title>
   <meta charset="UTF-8">
   <script type="text/javascript">
-    var test = function(data){         //知识点2：设置回调函数为：test，触发条件：请求的资源中含有格式为：test({"":""})，data:为中间的:{"":""}
+    <!-- 方式一 -->
+    var test = function(data){         //知识点2：设置回调函数为：test，触发条件：请求的资源中，返回的数据含有格式为：test({"":""})，data:为中间的:{"":""}
       console.log(data.result)//输出：175.24.115.4      //知识点3：可以通过'data.key'方式获得值
 
       //以下均为通过get方式或post方式，将data作为参数发送给服务器
@@ -15,7 +16,8 @@
       //结束
 
     };
-    var flightHandler = function(data){    //知识点2：设置回调函数为：flightHandler，触发条件：请求的资源中含有格式为：flightHandler({"":""})
+    <!-- 方式二 -->
+    function flightHandler(data){    //知识点2：设置函数为：flightHandler，触发条件：请求的资源中，返回的数据含有格式为：flightHandler({"":""})
 
       console.log(data.code)//输出：CA1998
       console.log(data.price)//输出：1780
