@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <script type="text/javascript">
+    var test = function(data){         //知识点2：设置回调函数为：test，触发条件：获得数据中含有格式为：test({"":""})，data:为中间的:{"":""}
+      console.log(data.result)//输出：175.24.115.4      //知识点3：可以通过'data.key'方式获得值
+
+      //以下均为通过get方式或post方式，将data作为参数发送给服务器
+      xmlhttp=new XMLHttpRequest()
+      var  uri= './1.php?data=' + data.result  //知识点4：data.result作为了key的值，发送给服务器      xmlhttp.open("GET", uri, true);
+      xmlhttp.send();
+      //结束
+
+    };
+    var flightHandler = function(data){    //知识点2：设置回调函数为：flightHandler，触发条件：获得数据中含有格式为：flightHandler({"":""})
+
+      console.log(data.code)//输出：CA1998
+      console.log(data.price)//输出：1780
+      console.log(data.tickets)//输出：5
+    };
+  </script>
+
+  <!--知识点1：下行会请求src后面的链接，一般来说：会加'&callback=test'，callback参数则告诉'175.24.115.4'服务器，我的本地回调函数叫做test，所以请把查询结果传入这个函数中-->
+  <script type="text/javascript" src="http://175.24.115.4:8000/remote.js"></script>
+
+</head>
+<body>
+
+</body>
+</html>
