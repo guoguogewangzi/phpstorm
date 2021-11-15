@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        //得到航班信息查询结果后的回调函数
+        // var flightHandler = function(data){
+        //     alert('你查询的航班结果是：票价 ' + data.price + ' 元，' + '余票 ' + data.tickets + ' 张。');
+        // };
+        var test = function (data){
+            console.log(data)
+        }         //返回的数据中有:test({"":""}),则必须有该函数，否则报错
+
+
+        //知识点：以下为第二种方式：
+        // var url = "https://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/users/0/dailyAchv?ibc=newspc&from=all&callback=test"; //设置url地址
+        // var script = document.createElement('script'); // 创建script标签，
+        // script.setAttribute('src', url);            //设置属性:src="url"
+        // document.getElementsByTagName('head')[0].appendChild(script); // 把script标签加入head，此时调用开始
+
+
+    </script>
+
+    <script type="text/javascript" src="https://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/users/0/dailyAchv?ibc=newspc&from=all&callback="></script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+
+    <script src="jquery.js"></script>  <!--知识点：引入特殊的js文件，名为jquery.js-->
+
+    <script type="text/javascript">
+
+
+        var test = function (data){}         //返回的数据中有:test({"":""}),则必须有该函数，否则报错
+
+        //知识点：利用jQuery方式
+        jQuery(document).ready(function(){
+            $.ajax({
+                type: "get",
+                async: false,
+                //url: "http://175.24.115.4:8000/remote.js",
+                url:'http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/users/0/dailyAchv?ibc=newspc&from=all&callback=test',
+                dataType: "jsonp",
+                jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+                jsonpCallback:"test",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
+
+                success: function(json){
+                    console.log('success')
+                    console.log(json)
+
+                },
+                error: function(){
+                    alert('fail');
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
+
+<!--备注：-->
+<!--当'callback=?'时：-->
+<!--返回数据为：?({"":"",.....})-->
+
+<!--当'callback=test'时-->
+<!--返回数据为：test({"":"",.....})-->

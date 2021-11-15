@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        //得到航班信息查询结果后的回调函数
+        var flightHandler = function(data){
+            alert('你查询的航班结果是：票价 ' + data.price + ' 元，' + '余票 ' + data.tickets + ' 张。');
+        };
+        var test = function (data){}         //返回的数据中有:test({"":""}),则必须有该函数，否则报错
+
+
+        //知识点：以下为第二种方式：
+        var url = "http://175.24.115.4:8000/remote.js"; //设置url地址
+        var script = document.createElement('script'); // 创建script标签，
+        script.setAttribute('src', url);            //设置属性:src="url"
+        document.getElementsByTagName('head')[0].appendChild(script); // 把script标签加入head，此时调用开始
+
+
+    </script>
+
+<!--    <script type="text/javascript" src="http://175.24.115.4:8000/remote.js"></script>-->  <!--最终效果-->
+</head>
+<body>
+
+</body>
+</html>
